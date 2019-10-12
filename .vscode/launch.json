@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": ".NET Framework Launch",
+        "type": "clr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "InventionUiWpf.exe",
+        "args": [],
+        "cwd": "${workspaceFolder}/Bin/Debug",
+        "stopAtEntry": false
+      }
+    ]
+  }
+  
