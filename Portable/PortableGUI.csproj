@@ -41,16 +41,34 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Reference Include="Inv.Library, Version=1.0.44.0, Culture=neutral, PublicKeyToken=014a23717efc9544, processorArchitecture=MSIL">
-      <HintPath>..\packages\Invention.Library.1.0.44\lib\portable45-net45+win8\Inv.Library.dll</HintPath>
+    <Reference Include="Inv.Library">
+      <HintPath>..\lib\Inv.Library.dll</HintPath>
     </Reference>
-    <Reference Include="Inv.Platform, Version=1.0.44.0, Culture=neutral, PublicKeyToken=014a23717efc9544, processorArchitecture=MSIL">
-      <HintPath>..\packages\Invention.Platform.1.0.44\lib\portable45-net45+win8\Inv.Platform.dll</HintPath>
+    <Reference Include="Inv.Platform">
+      <HintPath>..\lib\Inv.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -61,11 +79,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Invention.Library.1.0.44\build\Invention.Library.targets" Condition="Exists('..\packages\Invention.Library.1.0.44\build\Invention.Library.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Invention.Library.1.0.44\build\Invention.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Invention.Library.1.0.44\build\Invention.Library.targets'))" />
   </Target>
 </Project>

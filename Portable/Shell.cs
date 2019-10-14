@@ -34,7 +34,7 @@ namespace Portable
 			stack.Background.Colour = Colour.Green;
 			stack.Size.Set(surface.Window.Width, surface.Window.Height);
 
-			Label[,] labels = new Label[wcells,hcells];
+			Label[,] labels = new Label[hcells, wcells];
 
 
 			var h = stack.Window.Height / hcells;
@@ -48,13 +48,13 @@ namespace Portable
 		{
 			var colorStep = 360.0 / (hcells * wcells);
 			var hue = 0.0;
-			for (int i = 0; i < wcells; i++)
+			for (int i = 0; i < hcells; i++)
 			{
 				var hstack = surface.NewStack(Orientation.Horizontal);
 				hstack.Size.SetHeight(h);
 				hstack.Size.SetWidth(w * wcells);
 				stack.AddPanel(hstack);
-				for (int j = 0; j < hcells; j++)
+				for (int j = 0; j < wcells; j++)
 				{
 					var label = surface.NewLabel();
 					label.Size.Set(w, h);
